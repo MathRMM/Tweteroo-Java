@@ -1,6 +1,6 @@
 package com.tweteroo.api.models;
 
-import com.tweteroo.api.dto.TweetDTO;
+import com.tweteroo.api.dto.PersonDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,20 +13,20 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @NoArgsConstructor
-public class Tweet {
-
-    public Tweet(TweetDTO req) {
+public class Person {
+    
+    public Person(PersonDTO req){
         this.username = req.username();
-        this.tweet = req.tweet();
+        this.avatar = req.avatar();
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(length = 25, nullable = false)
     private String username;
 
-    @Column(nullable = false)
-    private String tweet;
+    @Column(length = 255, nullable = false)
+    private String avatar;
 }
