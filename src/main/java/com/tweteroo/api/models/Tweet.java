@@ -1,5 +1,7 @@
 package com.tweteroo.api.models;
 
+import java.time.Instant;
+
 import com.tweteroo.api.dto.TweetDTO;
 
 import jakarta.persistence.Column;
@@ -29,4 +31,7 @@ public class Tweet {
 
     @Column(nullable = false)
     private String tweet;
+
+    @Column(nullable = false, updatable = false)
+    private Instant createdAt = Instant.now();
 }
